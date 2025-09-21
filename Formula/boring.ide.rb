@@ -14,13 +14,12 @@ class BoringIde < Formula
   end
 
   test do
-    expected_output = <<~EOS
-Usage: ide [path]
+    assert_match <<~EOS, shell_output("#{bin}/ide --help")
+      Usage: ide [path]
 
-Arguments
-    path (optional) - Path to project root directory.
+      Arguments
+          path (optional) - Path to project root directory.
 
-EOS
-    assert_match "Usage: ide [path]\n\nArguments\n    path (optional) - Path to project root directory.\n\n", shell_output("#{bin}/ide --help")
+    EOS
   end
 end
