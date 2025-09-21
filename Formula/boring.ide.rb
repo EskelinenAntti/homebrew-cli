@@ -14,6 +14,6 @@ class BoringIde < Formula
   end
 
   test do
-    assert_match "Usage: $(basename $0) [path]\n\nArguments\n    path (optional) - Path to project root directory.\n\n", shell_output("#{bin}/ide --help")
+    assert_match "Usage: ide [path]\n\nArguments\n    path (optional) - Path to project root directory.\n\n", shell_output("#{bin}/ide --help")
   end
 end
