@@ -1,8 +1,8 @@
 class BoringIde < Formula
   desc "Helix + lazygit + tmux = boring.ide"
   homepage "https://github.com/boringconfigs/boring.ide"
-  url "https://github.com/boringconfigs/boring.ide/archive/refs/tags/v0.0.1.tar.gz"
-  sha256 "85772d34f12a7fe9b5264072b23388dc017cd2693513548948193ed765ab69fc"
+  url "https://github.com/boringconfigs/boring.ide/archive/refs/tags/v0.0.2.tar.gz"
+  sha256 "d7a55c921133d33e85c937028cdae433162d8f1136860cbfc00f0dcd4473ab3b"
   license ""
 
   depends_on "helix"
@@ -13,7 +13,7 @@ class BoringIde < Formula
     bin.install "bin/ide" => "ide"
   end
 
-  # test do
-  #  system "#{bin}/ide", "this_path_is_invalid"
-  # end
+  test do
+    assert_match "Usage: ide [path]", shell_output("#{bin}/ide --help")
+  end
 end
