@@ -1,18 +1,13 @@
-# Boringconfigs Cli
+# Homebrew cli tap
+
+This is my very own Homebrew tap for making installing my terminal apps and scripts easier.
 
 ## How do I install these formulae?
 
-`brew install boringconfigs/cli/<formula>`
-
-Or `brew tap boringconfigs/cli` and then `brew install <formula>`.
+`brew install eskelinenantti/cli/<formula>`
 
 Or, in a `brew bundle` `Brewfile`:
 
 ```ruby
-tap "boringconfigs/cli"
-brew "<formula>"
+brew "eskelinenantti/cli/<formula>"
 ```
-
-## Documentation
-
-`brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
