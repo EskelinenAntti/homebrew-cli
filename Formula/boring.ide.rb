@@ -1,7 +1,7 @@
 class BoringIde < Formula
   desc "Helix + lazygit + tmux = boring.ide"
-  homepage "https://github.com/boringconfigs/boring.ide"
-  url "https://github.com/boringconfigs/boring.ide/archive/refs/tags/v0.0.6.tar.gz"
+  homepage "https://github.com/eskelinenantti/boring.ide"
+  url "https://github.com/eskelinenantti/tmux-ide/archive/refs/tags/v0.0.6.tar.gz"
   sha256 "06115943e7cae0bd259a0b9527b0c12b4054fe8474d97f970d0dfb3d96bee39f"
   license ""
 
