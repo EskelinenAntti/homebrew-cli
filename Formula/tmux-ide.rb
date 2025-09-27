@@ -1,4 +1,4 @@
-class BoringIde < Formula
+class TmuxIde < Formula
   desc "Helix + lazygit + tmux = tmux-ide"
   homepage "https://github.com/eskelinenantti/tmux-ide"
   url "https://github.com/eskelinenantti/tmux-ide/archive/refs/tags/v0.0.6.tar.gz"
