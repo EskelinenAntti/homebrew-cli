@@ -6,8 +6,3 @@ This is my very own Homebrew tap for making installing my terminal apps and scri
 
 `brew install eskelinenantti/cli/<formula>`
 
-Or, in a `brew bundle` `Brewfile`:
-
-```ruby
-brew "eskelinenantti/cli/<formula>"
-```
