@@ -5,10 +5,6 @@ class TmuxIde < Formula
   sha256 "744f40cb9bb144de6391bd316c34dde2cbde36185f818532ce27c923350ad78e"
   license ""
 
-  depends_on "helix"
-  depends_on "lazygit"
-  depends_on "tmux"
-
   def install
     bin.install "bin/ide" => "ide"
   end
