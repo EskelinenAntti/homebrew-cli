@@ -15,7 +15,6 @@ class TmuxIde < Formula
 
       Arguments
           path (optional) - Path to project root directory.
-
     EOS
   end
 end
