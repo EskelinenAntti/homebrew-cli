@@ -1,8 +1,8 @@
 class TmuxIde < Formula
   desc "Helix + lazygit + tmux = tmux-ide"
   homepage "https://github.com/eskelinenantti/tmux-ide"
-  url "https://github.com/EskelinenAntti/tmux-ide/archive/refs/tags/v0.0.8.tar.gz"
-  sha256 "95ae4a6ceb3edcf81568fdfea446cf6dc053a9ae3e5b8af37fe1578327f5968d"
+  url "https://github.com/EskelinenAntti/tmux-ide/archive/refs/tags/v0.0.9.tar.gz"
+  sha256 "744f40cb9bb144de6391bd316c34dde2cbde36185f818532ce27c923350ad78e"
   license ""
 
   depends_on "helix"
