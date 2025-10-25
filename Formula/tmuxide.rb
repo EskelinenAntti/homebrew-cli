@@ -11,5 +11,4 @@ class Tmuxide < Formula
     system "go", "build", "./cmd/ide/"
     bin.install "ide"
   end
-
 end
