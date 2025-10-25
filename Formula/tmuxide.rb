@@ -1,8 +1,8 @@
 class Tmuxide < Formula
   desc "Turn your terminal into an ide"
   homepage "https://github.com/EskelinenAntti/tmuxide"
-  url "https://github.com/EskelinenAntti/tmuxide/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "b6f5bdbf7389ea9bffbf78c8f72164eacdb29aea8f3132ae19ac894fecebd31c"
+  url "https://github.com/EskelinenAntti/tmuxide/archive/refs/tags/v1.0.1.tar.gz"
+  sha256 "61a9cb80a9b2a76c2d83ef65580714ba659aba48c48fc83200f373dd92dcc4a1"
   license "MIT"
 
   depends_on "go" => :build
