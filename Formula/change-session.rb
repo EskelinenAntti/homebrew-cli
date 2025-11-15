@@ -5,6 +5,12 @@ class ChangeSession < Formula
   sha256 "aee0cd22825154fef4d5cee2ef0cf366b75c81bb46c29383dcbf7c24d55dbe3a"
   license "MIT"
 
+  bottle do
+    root_url "https://github.com/EskelinenAntti/homebrew-cli/releases/download/change-session-0.0.1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "32594ce26f215feb4f8e6a4191dd74e69d25ab80b757d7bb3c9cdfa35ee0b059"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "776331cf39392dbf680b664786f2e102516e659949ef147c490261d4e212331c"
+  end
+
   depends_on "go" => :build
 
   def install
