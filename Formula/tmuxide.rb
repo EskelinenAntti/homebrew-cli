@@ -15,6 +15,6 @@ class Tmuxide < Formula
 
   def install
     system "go", "build", "./cmd/ide/"
-    bin.install "ide"
+    bin.install "cs"
   end
 end
