@@ -53,4 +53,5 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
     steps:
-    - uses: actions/labeler@v6
+      - uses: actions/checkout@v6
+      - uses: actions/labeler@v6
