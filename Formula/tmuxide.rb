@@ -1,8 +1,8 @@
 class Tmuxide < Formula
   desc "Turn your terminal into an ide"
   homepage "https://github.com/EskelinenAntti/tmuxide"
-  url "https://github.com/EskelinenAntti/tmuxide/archive/refs/tags/v1.1.3.tar.gz"
-  sha256 "8e30a1f6b882ef8360ab09d378826d5d65fd8c3855ca07c314069e65baf54de4"
+  url "https://github.com/EskelinenAntti/tmuxide/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "f39f37152071f48fde2761d0d9c2061b4275ce7cf2695a2651e8e95242ba3d3b"
   license "MIT"
 
   bottle do
