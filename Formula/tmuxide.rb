@@ -14,7 +14,7 @@ class Tmuxide < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "./cmd/cs/"
-    bin.install "cs"
+    system "go", "build", "./ide/"
+    bin.install "ide"
   end
 end
