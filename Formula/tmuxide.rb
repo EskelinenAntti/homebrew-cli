@@ -16,5 +16,14 @@ class Tmuxide < Formula
   def install
     system "go", "build", "-o", "./bin/ide", "./ide"
     bin.install "./bin/ide"
+
+    output = Utils.safe_popen_read("#{bin}/ide", "completion", "bash")
+    (bash_completion/"ide").write output
+
+    output = Utils.safe_popen_read("#{bin}/ide", "completion", "zsh")
+    (zsh_completion/"_ide").write output
+
+    output = Utils.safe_popen_read("#{bin}/ide", "completion", "fish")
+    (fish_completion/"ide.fish").write output
   end
 end
