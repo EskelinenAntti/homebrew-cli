@@ -1,13 +1,12 @@
 name: brew pr-pull
 
 on:
-  pull_request_target:
-    types:
-      - labeled
+  pull_request_review:
+    types: [submitted]
 
 jobs:
-  pr-pull:
-    if: contains(github.event.pull_request.labels.*.name, 'pr-pull')
+  approved:
+    if: github.event.review.state == 'approved'
     runs-on: ubuntu-22.04
     permissions:
       actions: read
