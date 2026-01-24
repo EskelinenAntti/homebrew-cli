@@ -1,0 +1,28 @@
+name: auto_bump
+on:
+  schedule:
+    - cron: "50 * * * *"
+  workflow_dispatch: {}
+jobs:
+  livecheck:
+    runs-on: ubuntu-22.04
+    permissions:
+      actions: read
+      checks: read
+      contents: write
+      issues: read
+      pull-requests: write
+    steps:
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Run livecheck and bump formulae
+        env:
+          # Required for brew bump-formula-pr
+          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          .github/bin/livecheck.sh EskelinenAntti/cli
+
