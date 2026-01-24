@@ -6,10 +6,10 @@ class HomebrewAutomation < Formula
   license ""
 
   bottle do
-    root_url "https://github.com/EskelinenAntti/homebrew-cli/releases/download/homebrew-automation-0.3.0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "39cc3bfa7718b0ab5d4840f98d4d5bf08bd24ee8580e65cefcabf24c1db44063"
-    sha256 cellar: :any_skip_relocation, sequoia:       "580051de66b1647db9dd086596639915ebafe0e0410e6df4c1a47b72d1c8e746"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "902cd3c2b02ab4dff21e15ad2469c9a595844fdb2f7f4381d2a0d0773aab1032"
+    root_url "https://github.com/EskelinenAntti/homebrew-cli/releases/download/homebrew-automation-0.3.1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bc58834726e4086cf1362a3cb3bd8805c64b8340e2f080da6d72161b8df4994c"
+    sha256 cellar: :any_skip_relocation, sequoia:       "474c63021e3590e0c6223c37c1c586b2606a7760d4b38ae0daa5bc0d15f10ced"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78f51bed46e8ffec02cbe6f490303848b429a98e18c23fdbd93be5dbd0bb4d4e"
   end
 
   def install
