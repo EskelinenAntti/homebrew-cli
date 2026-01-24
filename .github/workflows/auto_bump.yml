@@ -23,5 +23,5 @@ jobs:
         env:
           HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          .github/bin/livecheck.sh EskelinenAntti/cli
+          .github/bin/auto_bump EskelinenAntti/cli
 
