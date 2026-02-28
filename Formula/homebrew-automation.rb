@@ -1,8 +1,8 @@
 class HomebrewAutomation < Formula
   desc "Handy scripts for automating Homebrew related actions"
   homepage "https://github.com/EskelinenAntti/homebrew-automation"
-  url "https://github.com/EskelinenAntti/homebrew-automation/archive/refs/tags/v0.3.2.tar.gz"
-  sha256 "69dbb7d9e869ea550df755e617cbb48879240a7f42f27fa70db8ae275ca5ccd0"
+  url "https://github.com/EskelinenAntti/homebrew-automation/archive/refs/tags/v0.3.3.tar.gz"
+  sha256 "71eb8969fa0476df02dbaf900f5bd25f29e0e893061a2f95e51e3d25c13b7512"
   license ""
 
   bottle do
