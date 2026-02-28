@@ -5,6 +5,11 @@ class Tmuxide < Formula
   sha256 "69232868c1b2ce1c2d420ba2b87d1c63e727275f76c246883fe795ad63f57aa9"
   license "MIT"
 
+  depends_on "fd"
+  depends_on "fzf"
+  depends_on "git"
+  depends_on "tmux"
+
   bottle do
     root_url "https://github.com/EskelinenAntti/homebrew-cli/releases/download/tmuxide-5.9.3"
     rebuild 1
