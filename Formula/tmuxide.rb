@@ -6,9 +6,9 @@ class Tmuxide < Formula
   license "MIT"
 
   bottle do
-    root_url "https://github.com/EskelinenAntti/homebrew-cli/releases/download/tmuxide-7.0.1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fe337cc095773d6045b5ad952e8590d026917e23d07e1f0f0de9e9b6d41a8b90"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "681f0749a6731e0051530692d15b11398c3c38b725a42859ce047c3c9e0f8b8f"
+    root_url "https://github.com/EskelinenAntti/homebrew-cli/releases/download/tmuxide-7.0.2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "63d058d4f5a581a78b327ae2e2c841931472afac3eb3e5b3e5ca70f793556c89"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d032d20cbb1f3d92a2a16bc1de1db767af402a8cd570244ac444242aa7d70c8"
   end
 
   depends_on "go" => :build
