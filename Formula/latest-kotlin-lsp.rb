@@ -12,10 +12,6 @@ class LatestKotlinLsp < Formula
   depends_on :macos
   depends_on "unar" => :extract
 
-  # This tells Homebrew to leave the binaries alone and not try to strip 
-  # or relocate them, which bypasses the headerpad error.
-  skip_clean :all
-
   on_macos do
     if Hardware::CPU.intel?
       url "https://download-cdn.jetbrains.com/kotlin-lsp/#{version}/kotlin-server-#{version}-x64.zip"
@@ -26,19 +22,25 @@ class LatestKotlinLsp < Formula
     end
   end
 
+  # This prevents Homebrew from stripping the binaries, 
+  # which can also cause header issues.
+  skip_clean :all
+
   def install
-    # Ensure the binary is executable
+    # 1. Fix permissions before moving
     chmod "+x", "bin/intellij-server"
-    
-    # Move everything to libexec (standard for apps with many internal libs)
-    libexec.install Dir["*"]
-    
-    # Create the symlink in /opt/homebrew/bin
-    bin.install_symlink "#{libexec}/bin/intellij-server" => "intellij-server"
+
+    # 2. Install to 'share' instead of 'libexec'. 
+    # Homebrew's relocation logic is less aggressive here.
+    share.install Dir["*"]
+
+    # 3. Create a wrapper script
+    # JetBrains tools often rely on their internal relative paths. 
+    # A symlink sometimes breaks them, but a wrapper script is rock solid.
+    (bin/"intellij-server").write_env_script "#{share}/bin/intellij-server", {}
   end
 
   test do
-    # Verify the help output
     assert_match "Usage: kotlin-lsp", shell_output("#{bin}/intellij-server -h")
   end
 end
