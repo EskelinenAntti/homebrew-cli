@@ -12,7 +12,7 @@ cask "latest-kotlin-lsp" do
   end
 
   name "Latest Kotlin LSP"
-  desc "Kotlin LSP server"
+  desc "Kotlin Language Server"
   homepage "https://github.com/Kotlin/kotlin-lsp"
 
   binary "bin/intellij-server", target: "intellij-server"
