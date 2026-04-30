@@ -11,6 +11,7 @@ class LatestKotlinLsp < Formula
 
   # We don't want to support brew packages on Linux (On Linux, people should be using their native package managers)
   depends_on :macos
+  depends_on "unar" => :extract
 
   on_macos do
     if Hardware::CPU.intel?
