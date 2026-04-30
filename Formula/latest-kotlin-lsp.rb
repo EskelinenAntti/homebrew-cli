@@ -4,6 +4,10 @@ class LatestKotlinLsp < Formula
   version "262.4739.0"
   license "Apache-2.0"
 
+  bottle do
+    cellar :any_skip_relocation
+  end
+
   livecheck do
     url :stable
     regex(/^(?:#)+\s*v(.*)$/i)
