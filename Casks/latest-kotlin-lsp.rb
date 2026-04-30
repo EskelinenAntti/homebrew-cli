@@ -19,5 +19,5 @@ cask "latest-kotlin-lsp" do
 
   depends_on macos: ">= :ventura"
 
-  binary "bin/intellij-server", target: "intellij-server"
+  binary "kotlin-server-#{version}/bin/intellij-server", target: "intellij-server"
 end
