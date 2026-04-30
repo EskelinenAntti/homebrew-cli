@@ -23,26 +23,30 @@ class LatestKotlinLsp < Formula
   end
 
   def install
-    # 1. Patch the ID before moving files.
-    # We use a glob to handle the architecture-specific paths in the vendor bundle.
-    Dir.glob("lib/native/mac-*/libsqliteij.jnilib").each do |file|
-      system "install_name_tool", "-id", "@rpath/libsqliteij.jnilib", file
-    end
-
-    # 2. Make the original binary executable
     chmod "+x", "bin/intellij-server"
-
-    # 3. Move everything into libexec to keep the prefix clean
+    
+    # 1. Move files to libexec
     libexec.install Dir["*"]
 
-    # 4. Create the wrapper script in bin. 
-    # We explicitly ensure the path is clear to avoid the 'Will not overwrite' error.
-    bin.mkpath
-    rm_f bin/"intellij-server"
+    # 2. MASK the library: Rename it so the relocation scanner ignores it.
+    # We use a suffix that doesn't look like a native library.
+    if Hardware::CPU.arm?
+      mv libexec/"lib/native/mac-aarch64/libsqliteij.jnilib", 
+         libexec/"lib/native/mac-aarch64/libsqliteij.jnilib.skip"
+    end
+
     (bin/"intellij-server").write_env_script(
       "#{libexec}/bin/intellij-server",
       {}
     )
+  end
+
+  # 3. UNMASK the library: This runs AFTER Homebrew's relocation phase.
+  def post_install
+    if Hardware::CPU.arm? && File.exist?(libexec/"lib/native/mac-aarch64/libsqliteij.jnilib.skip")
+      mv libexec/"lib/native/mac-aarch64/libsqliteij.jnilib.skip", 
+         libexec/"lib/native/mac-aarch64/libsqliteij.jnilib"
+    end
   end
 
   test do
