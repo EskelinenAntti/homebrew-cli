@@ -4,10 +4,6 @@ class LatestKotlinLsp < Formula
   version "262.4739.0"
   license "Apache-2.0"
 
-  bottle do
-    cellar :any_skip_relocation
-  end
-
   livecheck do
     url :stable
     regex(/^(?:#)+\s*v(.*)$/i)
@@ -26,22 +22,15 @@ class LatestKotlinLsp < Formula
     end
   end
 
-  # This prevents Homebrew from stripping the binaries, 
-  # which can also cause header issues.
-  skip_clean :all
-
   def install
-    # 1. Fix permissions before moving
     chmod "+x", "bin/intellij-server"
 
-    # 2. Install to 'share' instead of 'libexec'. 
-    # Homebrew's relocation logic is less aggressive here.
-    share.install Dir["*"]
+    libexec.install Dir["*"]
 
-    # 3. Create a wrapper script
-    # JetBrains tools often rely on their internal relative paths. 
-    # A symlink sometimes breaks them, but a wrapper script is rock solid.
-    (bin/"intellij-server").write_env_script "#{share}/bin/intellij-server", {}
+    (bin/"intellij-server").write_env_script(
+      "#{libexec}/bin/intellij-server",
+      {}
+    )
   end
 
   test do
