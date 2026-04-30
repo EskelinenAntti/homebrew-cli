@@ -23,17 +23,22 @@ class LatestKotlinLsp < Formula
   end
 
   def install
-    # 1. Patch the ID before moving files. 
-    # Use a relative path to the file in the current build directory.
-    # Using @rpath ensures the string is short enough to fit the vendor's header.
+    # 1. Patch the ID before moving files.
+    # We use a glob to handle the architecture-specific paths in the vendor bundle.
     Dir.glob("lib/native/mac-*/libsqliteij.jnilib").each do |file|
       system "install_name_tool", "-id", "@rpath/libsqliteij.jnilib", file
     end
 
-    # 2. Proceed with standard installation
+    # 2. Make the original binary executable
     chmod "+x", "bin/intellij-server"
+
+    # 3. Move everything into libexec to keep the prefix clean
     libexec.install Dir["*"]
 
+    # 4. Create the wrapper script in bin. 
+    # We explicitly ensure the path is clear to avoid the 'Will not overwrite' error.
+    bin.mkpath
+    rm_f bin/"intellij-server"
     (bin/"intellij-server").write_env_script(
       "#{libexec}/bin/intellij-server",
       {}
