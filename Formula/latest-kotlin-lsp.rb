@@ -13,11 +13,4 @@ cask "latest-kotlin-lsp" do
   depends_on macos: ">= :ventura"
 
   artifact "bin/intellij-server", target: "/usr/local/bin/intellij-server"
-
-  zap trash: [
-    "~/Library/Application Support/Kotlin",
-    "~/Library/Caches/Kotlin",
-    "~/Library/Logs/Kotlin",
-    "~/Library/Preferences/com.jetbrains.kotlin.plist",
-  ]
 end
