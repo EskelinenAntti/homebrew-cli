@@ -1,54 +1,23 @@
-class LatestKotlinLsp < Formula
-  desc "Latest Official Language Server Protocol for the Kotlin language"
-  homepage "https://github.com/Kotlin/kotlin-lsp"
+cask "latest-kotlin-lsp" do
   version "262.4739.0"
-  license "Apache-2.0"
+  sha256 arm:   "1b745743ce22ad92681a1bc3b1046803e942a6e1f36e04fb85ae9a40334a2f1e",
+         intel: "6f06efe7a10f94b9c8a028c4efeb6c7e1769f47a01edfb74450acf30ab5665e4"
 
-  livecheck do
-    url :stable
-    regex(/^(?:#)+\s*v(.*)$/i)
-  end
+  url arm:   "https://download-cdn.jetbrains.com/kotlin-lsp/#{version}/kotlin-server-#{version}-aarch64.sit",
+      intel: "https://download-cdn.jetbrains.com/kotlin-lsp/#{version}/kotlin-server-#{version}-x64.zip"
 
-  depends_on :macos
-  depends_on "unar" => :extract
+  name "Latest Kotlin LSP"
+  desc "Latest official Language Server Protocol for Kotlin"
+  homepage "https://github.com/Kotlin/kotlin-lsp"
 
-  on_macos do
-    if Hardware::CPU.intel?
-      url "https://download-cdn.jetbrains.com/kotlin-lsp/#{version}/kotlin-server-#{version}-x64.zip"
-      sha256 "6f06efe7a10f94b9c8a028c4efeb6c7e1769f47a01edfb74450acf30ab5665e4"
-    elsif Hardware::CPU.arm?
-      url "https://download-cdn.jetbrains.com/kotlin-lsp/#{version}/kotlin-server-#{version}-aarch64.sit"
-      sha256 "1b745743ce22ad92681a1bc3b1046803e942a6e1f36e04fb85ae9a40334a2f1e"
-    end
-  end
+  depends_on macos: ">= :ventura"
 
-  def install
-    chmod "+x", "bin/intellij-server"
+  artifact "bin/intellij-server", target: "/usr/local/bin/intellij-server"
 
-    # Move all files to libexec
-    libexec.install Dir["*"]
-
-    # 1. MASK: Compress the library so Homebrew's relocation scanner ignores it.
-    # Gzip changes the magic bytes, preventing the 'install_name_tool' attempt.
-    if Hardware::CPU.arm?
-      jnilib = libexec/"lib/native/mac-aarch64/libsqliteij.jnilib"
-      system "gzip", "-n", jnilib if jnilib.exist?
-    end
-
-    (bin/"intellij-server").write_env_script(
-      "#{libexec}/bin/intellij-server",
-      {}
-    )
-  end
-
-  def post_install
-    if Hardware::CPU.arm?
-      jnilib_gz = libexec/"lib/native/mac-aarch64/libsqliteij.jnilib.gz"
-      system "gunzip", jnilib_gz if jnilib_gz.exist?
-    end
-  end
-
-  test do
-    assert_match "Usage: kotlin-lsp", shell_output("#{bin}/intellij-server -h")
-  end
+  zap trash: [
+    "~/Library/Application Support/Kotlin",
+    "~/Library/Caches/Kotlin",
+    "~/Library/Logs/Kotlin",
+    "~/Library/Preferences/com.jetbrains.kotlin.plist",
+  ]
 end
