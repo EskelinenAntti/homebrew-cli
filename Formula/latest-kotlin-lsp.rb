@@ -24,15 +24,15 @@ class LatestKotlinLsp < Formula
 
   def install
     chmod "+x", "bin/intellij-server"
-    
-    # 1. Move files to libexec
+
+    # Move all files to libexec
     libexec.install Dir["*"]
 
-    # 2. MASK the library: Rename it so the relocation scanner ignores it.
-    # We use a suffix that doesn't look like a native library.
+    # 1. MASK: Compress the library so Homebrew's relocation scanner ignores it.
+    # Gzip changes the magic bytes, preventing the 'install_name_tool' attempt.
     if Hardware::CPU.arm?
-      mv libexec/"lib/native/mac-aarch64/libsqliteij.jnilib", 
-         libexec/"lib/native/mac-aarch64/libsqliteij.jnilib.skip"
+      jnilib = libexec/"lib/native/mac-aarch64/libsqliteij.jnilib"
+      system "gzip", "-n", jnilib if jnilib.exist?
     end
 
     (bin/"intellij-server").write_env_script(
@@ -41,11 +41,10 @@ class LatestKotlinLsp < Formula
     )
   end
 
-  # 3. UNMASK the library: This runs AFTER Homebrew's relocation phase.
   def post_install
-    if Hardware::CPU.arm? && File.exist?(libexec/"lib/native/mac-aarch64/libsqliteij.jnilib.skip")
-      mv libexec/"lib/native/mac-aarch64/libsqliteij.jnilib.skip", 
-         libexec/"lib/native/mac-aarch64/libsqliteij.jnilib"
+    if Hardware::CPU.arm?
+      jnilib_gz = libexec/"lib/native/mac-aarch64/libsqliteij.jnilib.gz"
+      system "gunzip", jnilib_gz if jnilib_gz.exist?
     end
   end
 
