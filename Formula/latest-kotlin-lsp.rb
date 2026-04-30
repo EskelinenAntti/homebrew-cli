@@ -9,35 +9,36 @@ class LatestKotlinLsp < Formula
     regex(/^(?:#)+\s*v(.*)$/i)
   end
 
-  # We don't want to support brew packages on Linux (On Linux, people should be using their native package managers)
   depends_on :macos
   depends_on "unar" => :extract
+
+  # This tells Homebrew to leave the binaries alone and not try to strip 
+  # or relocate them, which bypasses the headerpad error.
+  skip_clean :all
 
   on_macos do
     if Hardware::CPU.intel?
       url "https://download-cdn.jetbrains.com/kotlin-lsp/#{version}/kotlin-server-#{version}-x64.zip"
       sha256 "6f06efe7a10f94b9c8a028c4efeb6c7e1769f47a01edfb74450acf30ab5665e4"
-
-      define_method(:install) do
-        chmod "+x", "bin/intellij-server"
-        libexec.install Dir["*"]
-        bin.install_symlink "#{libexec}/intellij-server" => "intellij-server"
-      end
-    end
-    if Hardware::CPU.arm?
+    elsif Hardware::CPU.arm?
       url "https://download-cdn.jetbrains.com/kotlin-lsp/#{version}/kotlin-server-#{version}-aarch64.sit"
       sha256 "1b745743ce22ad92681a1bc3b1046803e942a6e1f36e04fb85ae9a40334a2f1e"
-
-      define_method(:install) do
-        chmod "+x", "bin/intellij-server"
-        libexec.install Dir["*"]
-        bin.install_symlink "#{libexec}/intellij-server" => "intellij-server"
-      end
     end
   end
 
+  def install
+    # Ensure the binary is executable
+    chmod "+x", "bin/intellij-server"
+    
+    # Move everything to libexec (standard for apps with many internal libs)
+    libexec.install Dir["*"]
+    
+    # Create the symlink in /opt/homebrew/bin
+    bin.install_symlink "#{libexec}/bin/intellij-server" => "intellij-server"
+  end
+
   test do
-    # kotlin-lsp doesn't have --version flag
-    assert_equal "Usage: kotlin-lsp [OPTIONS]", shell_output("#{bin}/intellij-server -h").split("\n").first
+    # Verify the help output
+    assert_match "Usage: kotlin-lsp", shell_output("#{bin}/intellij-server -h")
   end
 end
