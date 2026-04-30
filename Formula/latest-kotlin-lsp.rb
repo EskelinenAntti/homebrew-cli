@@ -23,12 +23,15 @@ class LatestKotlinLsp < Formula
   end
 
   def install
+    # 1. Patch the ID before moving files. 
+    # Use a relative path to the file in the current build directory.
+    # Using @rpath ensures the string is short enough to fit the vendor's header.
+    Dir.glob("lib/native/mac-*/libsqliteij.jnilib").each do |file|
+      system "install_name_tool", "-id", "@rpath/libsqliteij.jnilib", file
+    end
+
+    # 2. Proceed with standard installation
     chmod "+x", "bin/intellij-server"
-
-    # 1. Manually fix the ID to a relative path before Homebrew's sweep.
-    # This prevents the "headerpad" error by using a shorter string.
-    system "install_name_tool", "-id", "@rpath/libsqliteij.jnilib", "libexec/lib/native/mac-aarch64/libsqliteij.jnilib"
-
     libexec.install Dir["*"]
 
     (bin/"intellij-server").write_env_script(
