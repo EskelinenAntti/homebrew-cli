@@ -19,9 +19,9 @@ class LatestKotlinLsp < Formula
       sha256 "6f06efe7a10f94b9c8a028c4efeb6c7e1769f47a01edfb74450acf30ab5665e4"
 
       define_method(:install) do
-        chmod "+x", "bin/intellij-server.sh"
+        chmod "+x", "bin/intellij-server"
         libexec.install Dir["*"]
-        bin.install_symlink "#{libexec}/intellij-server.sh" => "intellij-server"
+        bin.install_symlink "#{libexec}/intellij-server" => "intellij-server"
       end
     end
     if Hardware::CPU.arm?
@@ -29,9 +29,9 @@ class LatestKotlinLsp < Formula
       sha256 "1b745743ce22ad92681a1bc3b1046803e942a6e1f36e04fb85ae9a40334a2f1e"
 
       define_method(:install) do
-        chmod "+x", "bin/intellij-server.sh"
+        chmod "+x", "bin/intellij-server"
         libexec.install Dir["*"]
-        bin.install_symlink "#{libexec}/intellij-server.sh" => "intellij-server"
+        bin.install_symlink "#{libexec}/intellij-server" => "intellij-server"
       end
     end
   end
