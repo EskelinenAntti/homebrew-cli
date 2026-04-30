@@ -1,7 +1,7 @@
 class LatestKotlinLsp < Formula
   desc "Latest Official Language Server Protocol for the Kotlin language"
   homepage "https://github.com/Kotlin/kotlin-lsp"
-  version "262.2310.0"
+  version "262.4739.0"
   license "Apache-2.0"
 
   livecheck do
@@ -14,8 +14,8 @@ class LatestKotlinLsp < Formula
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://download-cdn.jetbrains.com/kotlin-lsp/#{version}/kotlin-lsp-#{version}-mac-x64.zip"
-      sha256 "a4ccf591664cfef6a12f21a690d23bad26b92de62ed34674491b915f25f95bf5"
+      url "https://download-cdn.jetbrains.com/kotlin-lsp/#{version}/kotlin-server-#{version}-mac-x64.zip"
+      sha256 "1b745743ce22ad92681a1bc3b1046803e942a6e1f36e04fb85ae9a40334a2f1e"
 
       define_method(:install) do
         chmod "+x", "kotlin-lsp.sh"
@@ -24,8 +24,8 @@ class LatestKotlinLsp < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://download-cdn.jetbrains.com/kotlin-lsp/#{version}/kotlin-lsp-#{version}-mac-aarch64.zip"
-      sha256 "11560eb4ecd766204363848cc5ee84b51c0fd03fbfd4bbedaba0f00af74309c7"
+      url "https://download-cdn.jetbrains.com/kotlin-lsp/#{version}/kotlin-server-#{version}-mac-aarch64.zip"
+      sha256 "6f06efe7a10f94b9c8a028c4efeb6c7e1769f47a01edfb74450acf30ab5665e4"
 
       define_method(:install) do
         chmod "+x", "kotlin-lsp.sh"
