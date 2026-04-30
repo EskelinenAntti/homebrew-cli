@@ -25,6 +25,10 @@ class LatestKotlinLsp < Formula
   def install
     chmod "+x", "bin/intellij-server"
 
+    # 1. Manually fix the ID to a relative path before Homebrew's sweep.
+    # This prevents the "headerpad" error by using a shorter string.
+    system "install_name_tool", "-id", "@rpath/libsqliteij.jnilib", "libexec/lib/native/mac-aarch64/libsqliteij.jnilib"
+
     libexec.install Dir["*"]
 
     (bin/"intellij-server").write_env_script(
