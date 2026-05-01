@@ -2,15 +2,15 @@ cask "latest-kotlin-lsp" do
   version "262.4739.0"
 
   on_arm do
-    sha256 "46971110c9b8a3360ce3fdf5437467f4c447dad37ad73dbf81d64af6779e4105"
+    sha256 "1b745743ce22ad92681a1bc3b1046803e942a6e1f36e04fb85ae9a40334a2f1e"
 
-    url "https://download-cdn.jetbrains.com/kotlin-lsp/#{version}/kotlin-server-#{version}-aarch64.tar.gz"
+    url "https://download-cdn.jetbrains.com/kotlin-lsp/#{version}/kotlin-server-#{version}-aarch64.sit"
   end
 
   on_intel do
-    sha256 "625870ae091c6d0dee25514d545c708a6ea50d7cbb5154aaf1aa9123ccff338b"
+    sha256 "6f06efe7a10f94b9c8a028c4efeb6c7e1769f47a01edfb74450acf30ab5665e4"
 
-    url "https://download-cdn.jetbrains.com/kotlin-lsp/#{version}/kotlin-server-#{version}-x64.tar.gz"
+    url "https://download-cdn.jetbrains.com/kotlin-lsp/#{version}/kotlin-server-#{version}-x64.sit"
   end
 
   name "Latest Kotlin LSP"
