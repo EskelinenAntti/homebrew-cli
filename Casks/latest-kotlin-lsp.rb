@@ -22,6 +22,9 @@ cask "latest-kotlin-lsp" do
   binary "kotlin-server-#{version}/bin/intellij-server", target: "intellij-server"
 
   postflight do
+    arch = Hardware::CPU.arm? ? "macOS-AArch64" : "macOS-X64"
+
     system "xattr -d com.apple.quarantine #{HOMEBREW_PREFIX}/bin/intellij-server"
+    system "xattr -d com.apple.quarantine #{staged_path}/kotlin-server-#{version}/lib/filewatcher/#{arch}/libfilewatcher_jni.dylib"
   end
 end
