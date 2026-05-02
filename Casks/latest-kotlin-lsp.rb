@@ -20,6 +20,7 @@ cask "latest-kotlin-lsp" do
   depends_on macos: ">= :ventura"
 
   binary "kotlin-server-#{version}/bin/intellij-server", target: "intellij-server"
+  binary "kotlin-server-#{version}/kotlin-lsp.sh", target: "kotlin-lsp"
 
   postflight do
     system "xattr -d com.apple.quarantine #{HOMEBREW_PREFIX}/bin/intellij-server"
