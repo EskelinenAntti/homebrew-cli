@@ -22,6 +22,6 @@ cask "latest-kotlin-lsp" do
   binary "kotlin-server-#{version}/bin/intellij-server", target: "intellij-server"
 
   postflight do
-    system "xattr -d com.apple.quarantine kotlin-server-#{version}/bin/intellij-server"
+    system "xattr -d com.apple.quarantine #{HOMEBREW_PREFIX}/bin/intellij-server"
   end
 end
