@@ -32,6 +32,7 @@ class LatestKotlinLsp < Formula
     system "unzip", "-q", "#{archive_name}.sit"
     libexec.install Dir["kotlin-server-#{version}/*"]
     bin.install_symlink "#{libexec}/bin/intellij-server" => "kotlin-lsp"
+    bin.install_symlink "#{libexec}/bin/intellij-server" => "intellij-server"
   end
 
   test do
