@@ -1,0 +1,3 @@
+config-variables:
+  - BREW_AUTOMATION_ACTOR_ID
+  - BREW_AUTOMATION_APP_ID
