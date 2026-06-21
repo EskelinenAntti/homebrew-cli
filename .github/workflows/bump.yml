@@ -15,17 +15,25 @@ jobs:
   bump:
     if: github.event_name == 'schedule' || github.actor == github.repository_owner
     runs-on: ubuntu-latest
+    environment: brew-automation
     steps:
+      - name: Generate app token
+        id: app-token
+        uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2
+        with:
+          app-id: ${{ vars.BREW_AUTOMATION_APP_ID }}
+          private-key: ${{ secrets.BREW_AUTOMATION_PRIVATE_KEY }}
+
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@main
         with:
           core: true
-          token: ${{ secrets.HOMEBREW_BUMP_TOKEN }}
+          token: ${{ steps.app-token.outputs.token }}
 
       - name: Set up git
         uses: Homebrew/actions/git-user-config@main
 
       - name: Open bump pull requests
         env:
-          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.HOMEBREW_BUMP_TOKEN }}
+          HOMEBREW_GITHUB_API_TOKEN: ${{ steps.app-token.outputs.token }}
         run: brew bump --formula --open-pr --no-fork --tap="$GITHUB_REPOSITORY"
