@@ -5,6 +5,12 @@ class ZshConfiguration < Formula
   sha256 "033851c80a18346c1dd564131483fa41b6f26fa9d1f32c784c49ae40293cd7ce"
   license "MIT"
 
+  bottle do
+    root_url "https://github.com/EskelinenAntti/homebrew-cli/releases/download/zsh-configuration-1.0.1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:  "4db16abf1a46fe4ee82fb7093a063b886bef1407a10ae6c5bd813608ce5c14eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "4fe43d6aaf9a925b0b82f391e9265b602d69b60896e1cebb9989e8d3296e3621"
+  end
+
   depends_on "fzf"
   depends_on "zsh-autosuggestions"
   depends_on "zsh-syntax-highlighting"
