@@ -6,9 +6,9 @@ class ZshConfiguration < Formula
   license "MIT"
 
   bottle do
-    root_url "https://github.com/EskelinenAntti/homebrew-cli/releases/download/zsh-configuration-1.0.2"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:  "222c25968c157ecfc421b2baa780a1572a072f5739c4300fe181ee995687a20e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "9d2b42289188dcc2791665a66c07f17797e394c6d68aecbb2774ecc3fdeae78b"
+    root_url "https://github.com/EskelinenAntti/homebrew-cli/releases/download/zsh-configuration-1.0.3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:  "f2c42d2e366a524d99cc4e21382320e54f70db2ee3d0ff55c8e35459ae2e566b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "ffd1fd57272b055031ef758447db135f97db784e8fbbae961ce195490bcbef1f"
   end
 
   depends_on "fzf"
