@@ -19,6 +19,7 @@ jobs:
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@main
         with:
+          core: true
           token: ${{ secrets.HOMEBREW_BUMP_TOKEN }}
 
       - name: Set up git
