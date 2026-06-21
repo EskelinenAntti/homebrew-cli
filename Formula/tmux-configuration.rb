@@ -6,10 +6,10 @@ class TmuxConfiguration < Formula
   license "MIT"
 
   bottle do
-    root_url "https://github.com/EskelinenAntti/homebrew-cli/releases/download/tmux-configuration-1.0.1"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:  "f6c5f8cbc7e164f47a85689e6e98c5dfeba619b8e0cf261bb714d8f21001e025"
-    sha256 cellar: :any_skip_relocation, sequoia:      "da12d6ddfdb6f9dece433fde5c828a796fd6b020d68dae239136a4ddd23d5924"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "b316760cf57f0bb442864dfa19597b3bc78691415105181391b2ae2f11f87d35"
+    root_url "https://github.com/EskelinenAntti/homebrew-cli/releases/download/tmux-configuration-1.0.2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:  "4b2cb78331635dd6ad8c91da80f92d9eb5782eedbe19434019d281fa9afbbb3e"
+    sha256 cellar: :any_skip_relocation, sequoia:      "179d90b38d55c471eda77336ac7a4f8a9fb714b67425cfb2bcdf92ac989841f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "d2600eacccc45e303c7c57a241dc46f57754a1fe7b207fbbe29de704b58bb77e"
   end
 
   def install
