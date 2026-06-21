@@ -1,8 +1,8 @@
 class TmuxConfiguration < Formula
   desc "My personal tmux configuration"
   homepage "https://github.com/EskelinenAntti/tmux-configuration"
-  url "https://github.com/EskelinenAntti/tmux-configuration/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "944c534908f45063add71322ad5f75c4411fe1e5950b8c81d9aa4a2d573547e1"
+  url "https://github.com/EskelinenAntti/tmux-configuration/archive/refs/tags/v1.0.1.tar.gz"
+  sha256 "73d8567499c62a34623fe402508da2022bee97871233bc840bb8fb5f78aaa4ae"
   license "MIT"
 
   def install
