@@ -49,17 +49,3 @@ jobs:
         with:
           name: bottles_${{ matrix.os }}
           path: '*.bottle.*'
-  auto-merge:
-    if: >-
-      github.event_name == 'pull_request' &&
-      github.event.pull_request.user.login == github.repository_owner
-    needs: test-bot
-    runs-on: ubuntu-latest
-    permissions: {}
-    steps:
-      - name: Add pr-pull label
-        env:
-          GH_TOKEN: ${{ secrets.HOMEBREW_BUMP_TOKEN }}
-          PULL_REQUEST: ${{ github.event.pull_request.number }}
-          REPOSITORY: ${{ github.repository }}
-        run: gh pr edit "$PULL_REQUEST" --repo "$REPOSITORY" --add-label pr-pull
