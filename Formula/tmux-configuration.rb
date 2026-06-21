@@ -5,6 +5,13 @@ class TmuxConfiguration < Formula
   sha256 "73d8567499c62a34623fe402508da2022bee97871233bc840bb8fb5f78aaa4ae"
   license "MIT"
 
+  bottle do
+    root_url "https://github.com/EskelinenAntti/homebrew-cli/releases/download/tmux-configuration-1.0.1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:  "f6c5f8cbc7e164f47a85689e6e98c5dfeba619b8e0cf261bb714d8f21001e025"
+    sha256 cellar: :any_skip_relocation, sequoia:      "da12d6ddfdb6f9dece433fde5c828a796fd6b020d68dae239136a4ddd23d5924"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "b316760cf57f0bb442864dfa19597b3bc78691415105181391b2ae2f11f87d35"
+  end
+
   def install
     pkgshare.install "tmux-configuration.conf"
   end
