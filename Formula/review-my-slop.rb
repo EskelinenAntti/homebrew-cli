@@ -1,8 +1,8 @@
 class ReviewMySlop < Formula
   desc "Terminal UI for reviewing Git changes and attaching line feedback for AI agents"
   homepage "https://github.com/EskelinenAntti/review-my-slop"
-  url "https://github.com/EskelinenAntti/review-my-slop/archive/refs/tags/v1.2.2.tar.gz"
-  sha256 "1e90324ccce3cf2f1a7ffe488336aba93863e70023d0c5ee4e88cac6fa396b20"
+  url "https://github.com/EskelinenAntti/review-my-slop/archive/refs/tags/v1.2.3.tar.gz"
+  sha256 "e0b3a60c60936d0cd9d843ef19766977ee8a93f73e87ec5d7a5dc2e941ac7f5e"
   license "MIT"
 
   bottle do
