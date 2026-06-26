@@ -6,9 +6,9 @@ class ReviewMySlop < Formula
   license "MIT"
 
   bottle do
-    root_url "https://github.com/EskelinenAntti/homebrew-cli/releases/download/review-my-slop-1.2.4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:  "3fb72805e36af58552fea52eeb848c08079372d3bae39c82ea75d112f091974a"
-    sha256 cellar: :any,                 x86_64_linux: "0ad663ed2f6ae9cc0e8ee360a0fd28c18ac4368150300408988445d4f7d81933"
+    root_url "https://github.com/EskelinenAntti/homebrew-cli/releases/download/review-my-slop-1.2.5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:  "7ff37f11b53a9c31aa67814a9227a518f84c99502d9f27abadd9a4fd32429c37"
+    sha256 cellar: :any,                 x86_64_linux: "0b44cd7e362f0d7c464e91d0f752eea017baf1aa3aa3a099e50793f382f29229"
   end
 
   depends_on "go" => :build
