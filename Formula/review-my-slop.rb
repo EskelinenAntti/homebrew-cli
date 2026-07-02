@@ -1,5 +1,5 @@
 class ReviewMySlop < Formula
-  desc "Terminal UI for reviewing Git changes and attaching line feedback for AI agents"
+  desc "Keyboard-driven diff viewer TUI for reviewing AI code"
   homepage "https://github.com/EskelinenAntti/review-my-slop"
   url "https://github.com/EskelinenAntti/review-my-slop/archive/refs/tags/v1.2.5.tar.gz"
   sha256 "307f96a08ec0b061bcbb1f46ebf9c15312908e01db90e4be4032f05eef78b09d"
