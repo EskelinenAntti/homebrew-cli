@@ -1,8 +1,8 @@
 class ZshConfiguration < Formula
   desc "My personal zsh configuration"
   homepage "https://github.com/EskelinenAntti/zsh-configuration"
-  url "https://github.com/EskelinenAntti/zsh-configuration/archive/refs/tags/v1.0.6.tar.gz"
-  sha256 "990e2927f9b323e0f8fb742fcefd3ed29175f20fae64d5f8eda62bb5c8efbc77"
+  url "https://github.com/EskelinenAntti/zsh-configuration/archive/refs/tags/v1.0.7.tar.gz"
+  sha256 "bac7500b873085adf28f542361d4e4699de4d7df383b4716edb84a2d9b18646d"
   license "MIT"
 
   bottle do
