@@ -1,8 +1,8 @@
 class ReviewMySlop < Formula
   desc "Keyboard-driven diff viewer TUI for reviewing AI code"
   homepage "https://github.com/EskelinenAntti/review-my-slop"
-  url "https://github.com/EskelinenAntti/review-my-slop/archive/refs/tags/v1.2.5.tar.gz"
-  sha256 "307f96a08ec0b061bcbb1f46ebf9c15312908e01db90e4be4032f05eef78b09d"
+  url "https://github.com/EskelinenAntti/review-my-slop/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "ab9fc0b7dbb1c2999336c06c74a7160ca7424e07f9f55d4d83922bb93fb2f5b5"
   license "MIT"
 
   bottle do
