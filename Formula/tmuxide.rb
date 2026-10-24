@@ -1,8 +1,8 @@
 class Tmuxide < Formula
   desc "Tmux sessions for simple humans"
   homepage "https://github.com/EskelinenAntti/tmuxide"
-  url "https://github.com/EskelinenAntti/tmuxide/archive/refs/tags/v8.1.1.tar.gz"
-  sha256 "7deef68d396f3ad7ce5d3b77521b6981edbd0a38af456080b578a6e50dab788f"
+  url "https://github.com/EskelinenAntti/tmuxide/archive/refs/tags/v8.2.0.tar.gz"
+  sha256 "793303873ec732f6d439157f725ea8a782abc65e3c5b2ec915e8ceca71a5153b"
   license "MIT"
 
   bottle do
