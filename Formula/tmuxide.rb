@@ -23,4 +23,8 @@ class Tmuxide < Formula
 
     generate_completions_from_executable(bin/"ide", "completion")
   end
+
+  test do
+    assert_match "tmuxide creates or switches to tmux sessions", shell_output("#{bin}/ide --help")
+  end
 end

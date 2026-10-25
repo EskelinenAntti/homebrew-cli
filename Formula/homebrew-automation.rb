@@ -15,4 +15,8 @@ class HomebrewAutomation < Formula
   def install
     bin.install Dir["bin/*"]
   end
+
+  test do
+    assert_match "Usage #{bin}/homebrew_bump [tap]", shell_output("#{bin}/homebrew_bump", 1)
+  end
 end
