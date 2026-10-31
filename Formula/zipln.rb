@@ -1,8 +1,8 @@
 class Zipln < Formula
   desc "File and folder picker for Herdr"
   homepage "https://github.com/EskelinenAntti/zipln"
-  url "https://github.com/EskelinenAntti/zipln/archive/refs/tags/v10.0.0.tar.gz"
-  sha256 "822bd5895048ee301841a5db727e491a5f8a7836ca3bdf0a7ba93ae11a66476b"
+  url "https://github.com/EskelinenAntti/zipln/archive/refs/tags/v10.0.1.tar.gz"
+  sha256 "9dfcf8aed13afe4d160dc20a73835151825b302747bb532b7ceccae4b4a63891"
   license "MIT"
 
   depends_on "go" => :build
