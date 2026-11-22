@@ -1,8 +1,8 @@
 class ZshPrompt < Formula
   desc "Git-aware Zsh prompt with Vim editing and prefix-history bindings"
   homepage "https://github.com/EskelinenAntti/zsh-prompt"
-  url "https://github.com/EskelinenAntti/zsh-prompt/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "976766a27e6cf4eaa82db84ba3926abab42a393353be2056581eebf832e54cd7"
+  url "https://github.com/EskelinenAntti/zsh-prompt/archive/refs/tags/v1.0.1.tar.gz"
+  sha256 "4f66de07ba6df42156f35fb4786b41ed8bafc01ba7f4dee0e49f06227722d5ac"
   license "MIT"
 
   uses_from_macos "zsh" => :test
