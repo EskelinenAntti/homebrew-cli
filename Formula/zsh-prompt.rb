@@ -13,8 +13,7 @@ class ZshPrompt < Formula
 
   def caveats
     <<~EOS
-      To activate the prompt, add the following to your .zshrc before sourcing
-      zsh-syntax-highlighting:
+      To activate the prompt, add the following to your .zshrc:
 
         source #{HOMEBREW_PREFIX}/share/zsh-prompt/zsh-prompt.zsh
 
