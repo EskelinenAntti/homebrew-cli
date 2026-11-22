@@ -12,8 +12,8 @@ class ZshConfiguration < Formula
   end
 
   depends_on "fzf"
-  depends_on "zsh-autosuggestions"
   depends_on "eskelinenantti/cli/zsh-prompt"
+  depends_on "zsh-autosuggestions"
   depends_on "zsh-syntax-highlighting"
 
   uses_from_macos "zsh" => :test
