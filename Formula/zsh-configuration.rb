@@ -11,8 +11,8 @@ class ZshConfiguration < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "a8f4ce0bc8a42441a3f454fbc4b0dd186908b69929541362ef47a3a64bccb69f"
   end
 
-  depends_on "fzf"
   depends_on "eskelinenantti/cli/zsh-prompt"
+  depends_on "fzf"
   depends_on "zsh-autosuggestions"
   depends_on "zsh-syntax-highlighting"
 
